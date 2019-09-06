@@ -237,7 +237,8 @@ class SystemConfig
         "bBackupExtraneousImages" => new ConfigItem(2062, "bBackupExtraneousImages", "boolean", "0", gettext("Include initials image files, remote image files (gravatar), and thumbnails in backup.  These files are generally able to be reproduced after a restore and add very little value to the backup archive at a large expense of execution time and storage")),
         "iSoftwareUpdateCheckInterval" => new ConfigItem(2063, "iSoftwareUpdateCheckInterval", "number", "24", gettext("Interval in Hours for software update check")),
         "sLastSoftwareUpdateCheckTimeStamp" => new ConfigItem(2064, "sLastSoftwareUpdateCheckTimeStamp", "text", "", gettext("Last Software Update Check Timestamp")),
-        "bAllowPrereleaseUpgrade" => new ConfigItem(2065, "bAllowPrereleaseUpgrade", "boolean", "0", gettext("Allow system upgrades to release marked as 'pre release' on GitHub")),        
+        "bAllowPrereleaseUpgrade" => new ConfigItem(2065, "bAllowPrereleaseUpgrade", "boolean", "0", gettext("Allow system upgrades to release marked as 'pre release' on GitHub")),
+        "bEnabledCanvass" => new ConfigItem(2066, "bEnabledCanvass", "boolean", "1", gettext("Enable Canvass.")),
         );
   }
 
@@ -248,7 +249,7 @@ class SystemConfig
       gettext('User setup') => ["iMinPasswordLength","iMinPasswordChange","iMaxFailedLogins","iSessionTimeout","aDisallowedPasswords","bEnableLostPassword"],
       gettext('Email Setup')  => ["sSMTPHost","bSMTPAuth","sSMTPUser","sSMTPPass", "iSMTPTimeout","sToEmailAddress", "bPHPMailerAutoTLS","sPHPMailerSMTPSecure"],
       gettext('People Setup')  => ["sDirClassifications","sDirRoleHead","sDirRoleSpouse","sDirRoleChild","sDefaultCity","sDefaultState","sDefaultCountry","bShowFamilyData","bHidePersonAddress","bHideFriendDate","bHideFamilyNewsletter","bHideWeddingDate","bHideLatLon","bForceUppercaseZip","bEnableSelfRegistration", "bAllowEmptyLastName", "iPersonNameStyle", "iProfilePictureListSize", "sNewPersonNotificationRecipientIDs", "IncludeDataInNewPersonNotifications","sGreeterCustomMsg1","sGreeterCustomMsg2"],
-      gettext('Enabled Features')  => ["bEnabledFinance", "bEnabledSundaySchool","bEnabledEvents","bEnabledCalendar","bEnabledFundraiser","bEnabledEmail", "bEnabledMenuLinks"],
+      gettext('Enabled Features')  => ["bEnabledFinance", "bEnabledSundaySchool","bEnabledEvents","bEnabledCalendar","bEnabledFundraiser","bEnabledEmail", "bEnabledCanvass", "bEnabledMenuLinks"],
       gettext('Map Settings')  => ["sGeoCoderProvider","sGoogleMapKey","sBingMapKey","sGMapIcons", "iMapZoom","sISTusername","sISTpassword"],
       gettext('Report Settings')  => ["sQBDTSettings","leftX","incrementY","sTaxReport1","sTaxReport2","sTaxReport3","sTaxSigner","sReminder1","sReminderSigner","sReminderNoPledge","sReminderNoPayments","sConfirm1","sConfirm2","sConfirm3","sConfirm4","sConfirm5","sConfirm6","sDear","sConfirmSincerely","sConfirmSigner","sPledgeSummary1","sPledgeSummary2","sDirectoryDisclaimer1","sDirectoryDisclaimer2","bDirLetterHead","sZeroGivers","sZeroGivers2","sZeroGivers3", "iPDFOutputType"],
       gettext('Financial Settings') => ["sDepositSlipType","iChecksPerDepositForm","bDisplayBillCounts","bUseScannedChecks","bEnableNonDeductible","iFYMonth","bUseDonationEnvelopes","aFinanceQueries"],
