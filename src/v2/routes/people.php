@@ -56,14 +56,28 @@ function listPeople(Request $request, Response $response, array $args)
   
     $members = PersonQuery::create();
     // set default sMode
-    $sMode = "People";
-    
+    $sMode = "Person";
+    // show || hide inActive
+    if (isset($_GET['inActive'])) {
+        $id = InputUtils::LegacyFilterInput($_GET['inActive']);
+        if ($id == 'false') {
+            $members->leftJoinFamily()->where('family_fam.fam_DateDeactivated is null');
+        }
+    }
+    $members->find();
+
     $filterByClsId = '';
     if (isset($_GET['Classification'])) {
         $id = InputUtils::LegacyFilterInput($_GET['Classification']);
         $option =  ListOptionQuery::create()->filterById(1)->filterByOptionId($id)->findOne();
-        $filterByClsId = $option->getOptionName(); 
-        $sMode = $filterByClsId;
+        if ($id == 0) {
+            $filterByClsId = gettext('Unassigned');
+            $sMode = $filterByClsId; 
+        } else {
+           $filterByClsId = $option->getOptionName(); 
+            $sMode = $filterByClsId; 
+        }
+        
     }
 
     $filterByFmrId = '';
